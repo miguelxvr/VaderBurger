@@ -9,8 +9,8 @@ public class Branch
 {
     private String name;
     private int saleLimit;
-    private Sale[] sales;
     private int countSales;
+    private Sale[] sales;
 
     /**
      * Constructor for objects of class Loja
@@ -20,12 +20,22 @@ public class Branch
         this.name = name;
         this.saleLimit = saleLimit;
         this.countSales = 0;
+        this.sales = new Sale[1000];
     }
 
-    public void sale(int []productId) {
+    public Sale createSale() {
         Sale sale = new Sale();
-        sale.setProducts(productId);
-        sales[this.countSales] = sale;
-        countSales++;
+        this.addSale(sale);
+        return sale;
+    }
+
+    public void addSale(Sale sale) {
+        this.sales[this.countSales] = sale;
+        this.countSales++;
+    }
+
+    /* Reports */
+    public int getTotalSales() {
+        return this.countSales;
     }
 }

@@ -20,10 +20,25 @@ public class App
         products[1] = new Product(2, "Dart Burger", 28.00);
         products[2] = new Product(3, "Skywalker Burger", 30.00);
         products[3] = new Product(4, "Bauru-Yoda", 25.00);
-        
+
+        // seleciona loja
         Branch b1 = branches[0];
-        b1.sale(2);
-        b1.sale(2);
-        b1.sale(2);
+
+        // seleciona opcao de venda
+        Sale sale = b1.createSale();
+        sale.open();
+
+        // adiciona produtos
+        sale.addProduct(1);
+        sale.addProduct(2);
+        sale.addProduct(3);
+
+        // finaliza venda
+        sale.confirm();
+
+        // return usuario para menu anterior
+
+        // Relatorio: total de vendas em todas as lojas
+        BranchReport.reportTotalSales(branches);
     }
 }
