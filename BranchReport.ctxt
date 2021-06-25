@@ -2,5 +2,5 @@
 comment0.target=BranchReport
 comment0.text=\n\ Write\ a\ description\ of\ class\ BranchReport\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=branches
-comment1.target=void\ reportTotalSales(Branch[])
+comment1.target=void\ reportTotalSales(BranchModel[])
 numComments=2

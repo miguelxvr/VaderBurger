@@ -7,7 +7,7 @@
  */
 public class BranchReport
 {
-    public static void reportTotalSales(Branch []branches) {
+    public static void reportTotalSales(BranchModel []branches) {
         int totalSales = 0;
         for(int i = 0; i < branches.length; i++) {
             if(branches[i] == null)

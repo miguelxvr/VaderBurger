@@ -1,8 +1,9 @@
-public class Sale
+public class SaleModel
 {
-    private int products[];
+    private ProductModel products[];
     private int countProduct;
     private Status status;
+    private BranchModel branchModel;
 
     public enum Status {
         INITIAL, OPEN, CONFIRMED
@@ -11,24 +12,25 @@ public class Sale
     /**
      * Constructor for objects of class Venda
      */
-    public Sale()
+    public SaleModel(BranchModel branchModel)
     {
-        this.products = new int[10];
+        this.products = new ProductModel[100];
         this.countProduct = 0;
         this.status = Status.INITIAL;
+        this.branchModel = branchModel;
     }
 
-    public int[] getProducts() {
+    public ProductModel[] getProducts() {
         return this.products;
     }
 
-    public void setProducts(int[] products) {
+    public void setProducts(ProductModel[] products) {
         this.products = products;
         this.countProduct = products.length;
     }
 
-    public void addProduct(int productId) {
-        this.products[this.countProduct] = productId;
+    public void addProduct(ProductModel product) {
+        this.products[this.countProduct] = product;
         this.countProduct++;
     }
 
@@ -39,5 +41,4 @@ public class Sale
     public void confirm() {
         this.status = Status.CONFIRMED;
     }
-
 }

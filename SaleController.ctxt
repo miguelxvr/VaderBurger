@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=SaleController
+comment0.text=\n\ Write\ a\ description\ of\ class\ SaleController\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=saleView
+comment1.target=SaleController(SaleView)
+comment2.params=branchModel
+comment2.target=SaleModel\ create(BranchModel)
+comment3.params=sale\ productModel
+comment3.target=void\ addProduct(SaleModel,\ ProductModel)
+comment4.params=saleModel
+comment4.target=void\ confirm(SaleModel)
+numComments=5

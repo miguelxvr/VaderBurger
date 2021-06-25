@@ -9,36 +9,51 @@ import java.util.Scanner;
 public class App
 {
     public static void main(String args[]) {
-        Product products[] = new Product[100];
-        Branch branches[] = new Branch[100];
 
-        branches[0] = new Branch("Matriz", 200);
-        branches[1] = new Branch("Filial 1", 100);
-        branches[2] = new Branch("Filial 2", 50);
+        BranchController branchCtrl = new BranchController(new BranchView());
+        ProductController productCtrl = new ProductController(new ProductView());
+        SaleController saleCtrl = new SaleController(new SaleView());
 
-        products[0] = new Product(1, "SabreDeLuz", 20.00);
-        products[1] = new Product(2, "Dart Burger", 28.00);
-        products[2] = new Product(3, "Skywalker Burger", 30.00);
-        products[3] = new Product(4, "Bauru-Yoda", 25.00);
+        /*
+         * CRUD Branch
+         */
 
-        // seleciona loja
-        Branch b1 = branches[0];
+        branchCtrl.create(1, "Matriz", 200);
+        branchCtrl.create(2, "Filial 1", 300);
+        branchCtrl.create(3, "Filial 2", 50);
 
-        // seleciona opcao de venda
-        Sale sale = b1.createSale();
-        sale.open();
+        /*
+         * CRUD Product
+         */
 
-        // adiciona produtos
-        sale.addProduct(1);
-        sale.addProduct(2);
-        sale.addProduct(3);
+        productCtrl.create(1, "SabreDeLuz", 20.00);
+        productCtrl.create(2, "Dart Burger", 28.00);
+        productCtrl.create(3, "Skywalker Burger", 30.00);
+        productCtrl.create(4, "Bauru-Yoda", 25.00);
 
-        // finaliza venda
-        sale.confirm();
+        /*
+         * CRUD Sale
+         */
 
-        // return usuario para menu anterior
+        BranchModel branch = branchCtrl.read(2);
+        SaleModel sale = saleCtrl.create(branch);
 
-        // Relatorio: total de vendas em todas as lojas
+        ProductModel product;
+        product = productCtrl.read(1);
+        saleCtrl.addProduct(sale, product);
+
+        product = productCtrl.read(2);
+        saleCtrl.addProduct(sale, product);
+
+        product = productCtrl.read(3);
+        saleCtrl.addProduct(sale, product);
+
+        saleCtrl.confirm(sale);
+
+        /*
+         * Relatoris
+         */
+        BranchModel[] branches = branchCtrl.list();
         BranchReport.reportTotalSales(branches);
     }
 }

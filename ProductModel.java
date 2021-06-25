@@ -5,13 +5,13 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Product
+public class ProductModel
 {
     private int id;
     private String name;
     private double price;
 
-    public Product(int id, String name, double price)
+    public ProductModel(int id, String name, double price)
     {
         this.id = id;
         this.name = name;
