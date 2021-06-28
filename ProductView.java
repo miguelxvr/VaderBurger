@@ -5,29 +5,23 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+import java.util.Scanner;
+
 public class ProductView
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private ProductController ctrl;
 
-    /**
-     * Constructor for objects of class ProductView
-     */
-    public ProductView()
+    public ProductView(ProductController productController)
     {
-        // initialise instance variables
-        x = 0;
+        this.ctrl = productController;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public void show()
     {
-        // put your code here
-        return x + y;
+        System.out.println("Informe os dados do produto:");
+        Scanner in = new Scanner(System.in);
+        String params = in.nextLine(); 
+        this.ctrl.create(1, "SabreDeLuz", 20.00);
+        in.close();
     }
 }

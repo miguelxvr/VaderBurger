@@ -8,13 +8,11 @@
 public class BranchController
 {
     private BranchModel[] branches; 
-    private BranchView branchView;
     private int countBranches;
 
-    public BranchController(BranchView branchView)
+    public BranchController()
     {
         this.branches = new BranchModel[100];
-        this.branchView = branchView;
     }
 
     public void create(int id, String name, int saleLimit) {
@@ -33,5 +31,11 @@ public class BranchController
 
     public BranchModel[] list() {
         return this.branches;
+    }
+    
+    public void printBranches() {
+        for(int i = 0; i < this.countBranches; i++) {
+            System.out.println(this.branches[i].toString());
+        }
     }
 }

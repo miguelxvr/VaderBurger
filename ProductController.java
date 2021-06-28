@@ -8,13 +8,11 @@
 public class ProductController
 {
     private ProductModel products[];
-    private ProductView productView;
     private int countProducts;
 
-    public ProductController(ProductView productView)
+    public ProductController()
     {
         this.products = new ProductModel[100];
-        this.productView = productView;
         this.countProducts = 0;
     }
 

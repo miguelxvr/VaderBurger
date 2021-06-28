@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=ProductController
 comment0.text=\n\ Write\ a\ description\ of\ class\ ProductController\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=productView
-comment1.target=ProductController(ProductView)
+comment1.params=
+comment1.target=ProductController()
 comment2.params=id\ name\ price
 comment2.target=ProductModel\ create(int,\ java.lang.String,\ double)
 comment3.params=id

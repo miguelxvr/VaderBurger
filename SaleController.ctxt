@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=SaleController
 comment0.text=\n\ Write\ a\ description\ of\ class\ SaleController\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=saleView
-comment1.target=SaleController(SaleView)
+comment1.params=
+comment1.target=SaleController()
 comment2.params=branchModel
 comment2.target=SaleModel\ create(BranchModel)
 comment3.params=sale\ productModel

@@ -8,13 +8,11 @@
 public class SaleController
 {
     private SaleModel[] sales;
-    private SaleView saleView;
     private int countSales;
 
-    public SaleController(SaleView saleView)
+    public SaleController()
     {
         this.sales = new SaleModel[100];
-        this.saleView = saleView;
         this.countSales = 0;
     }
 

@@ -20,8 +20,12 @@ public class BranchModel
         this.name = name;
         this.saleLimit = saleLimit;
     }
-    
+
     public int getId() {
         return this.id;
+    }
+
+    public String toString() {
+        return "Id: " + this.id + " Name: " + this.name + " Limit: " + this.saleLimit;
     }
 }
