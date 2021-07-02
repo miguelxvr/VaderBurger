@@ -12,6 +12,7 @@ public class SaleView
     private BranchController branchCtrl;
     private SaleController saleCtrl;
     private ProductController productCtrl;
+    private SaleModel sale;
 
     public SaleView(BranchController branchController, SaleController saleController, ProductController productController)
     {
@@ -22,23 +23,72 @@ public class SaleView
 
     public void show()
     {
-        System.out.println("Informe os dados da venda:");
+        boolean running = true;
+        while(running) {
+            System.out.println("Tela PDV:");
+            System.out.println("1 - Realizar uma venda");
+            System.out.println("2 - Voltar");
+
+            Scanner in = new Scanner(System.in);
+            int escolha = in.nextInt(); 
+            switch(escolha){
+                case 1: 
+                this.showBranchSelect();
+                this.showProductAdd();
+                this.showSaleConfirm();
+                break; 
+                case 2:
+                running = false;
+                break;
+                default:
+                System.out.println("Escolha inválida.");
+                break;
+            }
+            in.close();
+        }
+    }
+
+    private void showBranchSelect()
+    {
+        BranchModel branch;
+
         Scanner in = new Scanner(System.in);
-        String params = in.nextLine(); 
-        BranchModel branch = branchCtrl.read(2);
-        SaleModel sale = saleCtrl.create(branch);
 
-        ProductModel product;
-        product = productCtrl.read(1);
-        saleCtrl.addProduct(sale, product);
+        System.out.print("Informe o Id da Loja:");
+        int branchId =  Integer.parseInt(in.nextLine());
+        branch = branchCtrl.read(branchId);
+        this.sale = saleCtrl.create(branch);
 
-        product = productCtrl.read(2);
-        saleCtrl.addProduct(sale, product);
-
-        product = productCtrl.read(3);
-        saleCtrl.addProduct(sale, product);
-
-        saleCtrl.confirm(sale);
         in.close();
+    }
+
+    private void showProductAdd()
+    {
+        System.out.println("Lista de produtos");
+
+        productCtrl.printProducts();
+        System.out.print("Informe -1 para concluir.");
+
+        while(true) {
+            System.out.print("Escolha o produto:");
+
+            Scanner in = new Scanner(System.in);
+            int productId =  Integer.parseInt(in.nextLine());
+            in.close();
+
+            if(productId == -1)
+                break;
+
+            ProductModel product = productCtrl.read(productId);
+            this.saleCtrl.addProduct(this.sale, product);
+        }
+    }
+
+    private void showSaleConfirm()
+    {
+
+        this.saleCtrl.confirm(sale);
+
+        System.out.println("Venda Confirmada.");
     }
 }

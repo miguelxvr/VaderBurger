@@ -9,16 +9,20 @@ public class BranchController
 {
     private BranchModel[] branches; 
     private int countBranches;
+    private int countId;
 
     public BranchController()
     {
         this.branches = new BranchModel[100];
+        this.countBranches = 0;
+        this.countId = 1;
     }
 
-    public void create(int id, String name, int saleLimit) {
-        BranchModel branch = new BranchModel(id, name, saleLimit);
+    public void create(String name, int saleLimit) {
+        BranchModel branch = new BranchModel(this.countId, name, saleLimit);
         this.branches[this.countBranches] = branch;
         this.countBranches++;
+        this.countId++;
     }
 
     public BranchModel read(int id) {

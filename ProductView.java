@@ -18,10 +18,50 @@ public class ProductView
 
     public void show()
     {
+        boolean running = true;
+        while(running) {
+            System.out.println("Tela Produtos:");
+            System.out.println("1 - Registrar um produto");
+            System.out.println("2 - Listar produtos");
+            System.out.println("3 - Voltar");
+
+            Scanner in = new Scanner(System.in);
+            int escolha = in.nextInt(); 
+            switch(escolha){
+                case 1: 
+                this.showProductCreation();
+                break; 
+                case 2:
+                this.showProductList();
+                break;
+                case 3:
+                running = false;
+                break;
+                default:
+                System.out.println("Escolha inválida.");
+                break;
+            }
+            in.close();
+        }
+    }
+
+    private void showProductCreation()
+    {
         System.out.println("Informe os dados do produto:");
         Scanner in = new Scanner(System.in);
-        String params = in.nextLine(); 
-        this.ctrl.create(1, "SabreDeLuz", 20.00);
+
+        System.out.print("Nome:");
+        String name = in.nextLine();
+
+        System.out.print("Preco:");
+        double price = Double.parseDouble(in.nextLine());       
+
+        this.ctrl.create(name, price);
         in.close();
+    }
+
+    private void showProductList()
+    {
+        this.ctrl.printProducts();
     }
 }

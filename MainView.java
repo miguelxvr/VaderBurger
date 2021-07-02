@@ -15,13 +15,13 @@ public class MainView
     public void show()
     {
         boolean running = true;
-        
+
         while(running) {
             System.out.println("Seja bem-vindo à Vader Lord!"); 
             System.out.println("Menu de opções:");
             System.out.println("1 - Lojas");
-            System.out.println("2 - Registrar um produto");
-            System.out.println("3 - Vender");
+            System.out.println("2 - Produtos");
+            System.out.println("3 - Ponto de Vendas");
             System.out.println("4 - Sair");
 
             Scanner in = new Scanner(System.in);
@@ -35,8 +35,9 @@ public class MainView
                 break;
                 case 3:
                 this.saleView.show();
+                break;
                 case 4:
-                    running = false;
+                running = false;
                 break;
                 default:
                 System.out.println("Escolha inválida. Por favor, insira um número de 1 a 9");

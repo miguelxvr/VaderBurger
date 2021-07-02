@@ -26,6 +26,6 @@ public class BranchModel
     }
 
     public String toString() {
-        return "Id: " + this.id + " Name: " + this.name + " Limit: " + this.saleLimit;
+        return "Id: " + this.id + " Razao Social: " + this.name + " Limite de Vendas: " + this.saleLimit;
     }
 }

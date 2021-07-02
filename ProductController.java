@@ -9,17 +9,20 @@ public class ProductController
 {
     private ProductModel products[];
     private int countProducts;
+    private int countId;
 
     public ProductController()
     {
         this.products = new ProductModel[100];
         this.countProducts = 0;
+        this.countId = 1;
     }
 
-    public ProductModel create(int id, String name, double price) {
-        ProductModel product = new ProductModel(id, name, price);
+    public ProductModel create(String name, double price) {
+        ProductModel product = new ProductModel(this.countId, name, price);
         this.products[this.countProducts] = product;
         this.countProducts++;
+        this.countId++;
         return product;
     }
 
@@ -33,5 +36,11 @@ public class ProductController
 
     public ProductModel[] list() {
         return this.products;
+    }
+
+    public void printProducts() {
+        for(int i = 0; i < this.countProducts; i++) {
+            System.out.println(this.products[i].toString());
+        }
     }
 }

@@ -15,4 +15,6 @@ comment6.params=
 comment6.target=double\ getPrice()
 comment7.params=price
 comment7.target=void\ setPrice(double)
-numComments=8
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9
